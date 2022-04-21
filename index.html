@@ -1,0 +1,31 @@
+<html>
+  <script>
+    const cripto = (value) => {
+      let zenit = 'zenitZENIT';
+      let polar = 'polarPOLAR';
+      let result = '';
+      for (let i = 0; i < value.length; i++) {
+        if (zenit.includes(value[i])) {
+          let index = zenit.indexOf(value[i]);
+          result = result.concat(polar[index]);
+        } else if (polar.includes(value[i])) {
+          let index = polar.indexOf(value[i]);
+          result = result.concat(zenit[index]);
+        } else {
+          result = result.concat(value[i]);
+        }
+      }
+      document.getElementById('nameCripto').value = result;
+    };
+  </script>
+
+  <body>
+    <input type="text" id="nameCripto" />
+    <button
+      type="submit"
+      onclick="cripto(document.getElementById('nameCripto').value)"
+    >
+      Cripto
+    </button>
+  </body>
+</html>
